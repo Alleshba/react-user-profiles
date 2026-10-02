@@ -20,6 +20,9 @@ function UserProfile(props) {
     .map((word) => word[0])
     .join("");
 
+  const githubUrl = `https://github.com/${props.socials.github.replace("@", "")}`;
+  const twitterUrl = `https://x.com/${props.socials.twitter.replace("@", "")}`;
+
   return (
     <div className="card">
       <div className="card-top">
@@ -58,21 +61,31 @@ function UserProfile(props) {
       <p className="socials-title">🔗 Socials</p>
 
       <div className="socials">
-        <div className="social-btn github">
+        <a
+          className="social-btn github"
+          href={githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <GitHubIcon />
           <div>
             <p className="social-name">GitHub</p>
             <p className="social-handle">{props.socials.github}</p>
           </div>
-        </div>
+        </a>
 
-        <div className="social-btn twitter">
+        <a
+          className="social-btn twitter"
+          href={twitterUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <TwitterIcon />
           <div>
             <p className="social-name">Twitter</p>
             <p className="social-handle">{props.socials.twitter}</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );
